@@ -1,0 +1,14 @@
+.sidebar-shell {
+  border-radius: 28px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 0;
+}
+
+.sidebar-bottom-stack {
+  margin-top: auto;
+  display: grid;
+  gap: 12px;
+}

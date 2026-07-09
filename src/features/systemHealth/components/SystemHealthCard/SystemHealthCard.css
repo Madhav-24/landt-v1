@@ -1,0 +1,23 @@
+.system-kpi-card {
+  min-height: 108px;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.system-kpi-card span {
+  color: #9fb6db;
+}
+
+.system-kpi-card strong {
+  color: #f3f9ff;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.system-kpi-card.active {
+  border-color: rgba(0, 215, 255, 0.4);
+  box-shadow: 0 0 0 1px rgba(0, 215, 255, 0.15), 0 14px 30px rgba(0, 0, 0, 0.35);
+}

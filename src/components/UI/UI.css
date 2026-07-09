@@ -1,0 +1,170 @@
+.glass-card,
+.auth-card {
+  border-radius: var(--radius);
+  padding: 18px;
+}
+
+.glass-card {
+  min-width: 0;
+}
+
+.metric-card strong {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.metric-top,
+.site-head,
+.camera-caption-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.metric-icon {
+  color: var(--cyan);
+}
+
+.tone-cyan { border-color: rgba(0, 215, 255, 0.2); }
+.tone-blue { border-color: rgba(77, 141, 255, 0.2); }
+.tone-violet { border-color: rgba(155, 123, 255, 0.2); }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.section-header h2,
+.card-heading {
+  margin: 0;
+  color: #f7fbff;
+}
+
+.section-header p {
+  color: var(--muted);
+}
+
+.section-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.eyebrow {
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.72rem;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  border: 1px solid currentColor;
+}
+
+.status-pill.success { color: var(--success); }
+.status-pill.warning { color: var(--warning); }
+.status-pill.danger { color: var(--danger); }
+
+.action-button,
+.icon-button,
+.demo-button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 16px;
+  padding: 12px 14px;
+  background: linear-gradient(180deg, rgba(20, 31, 58, 0.92), rgba(11, 16, 31, 0.95));
+  color: #eef7ff;
+  border: 1px solid rgba(0, 215, 255, 0.16);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.action-button.primary {
+  background: linear-gradient(135deg, rgba(0, 215, 255, 0.26), rgba(77, 141, 255, 0.18));
+}
+
+.action-button.danger {
+  background: linear-gradient(135deg, rgba(255, 98, 122, 0.25), rgba(155, 123, 255, 0.12));
+}
+
+.action-button.ghost,
+.icon-button,
+.demo-button {
+  background: rgba(10, 16, 31, 0.88);
+}
+
+.action-button:hover,
+.icon-button:hover,
+.demo-button:hover {
+  transform: translateY(-1px);
+}
+
+.icon-button {
+  display: inline-grid;
+  place-items: center;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(1, 4, 12, 0.52);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: flex-end;
+  padding: 18px;
+  z-index: 30;
+}
+
+.drawer-panel {
+  width: min(420px, 100%);
+  border-radius: 24px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, rgba(9, 14, 31, 0.98), rgba(5, 8, 18, 0.96));
+  padding: 18px;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.drawer-header h3 {
+  margin: 0;
+  color: #f7fbff;
+}
+
+.drawer-header p {
+  color: var(--muted);
+}
+
+.drawer-body {
+  display: grid;
+  gap: 10px;
+}
+
+.validation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.validation-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(6, 12, 24, 0.7);
+}
+
+.validation-item.valid { color: var(--success); }
+.validation-item.invalid { color: var(--muted); }

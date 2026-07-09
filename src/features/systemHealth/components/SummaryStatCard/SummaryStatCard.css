@@ -1,0 +1,15 @@
+.summary-stat-card {
+  min-height: 86px;
+  display: grid;
+  align-content: center;
+  gap: 6px;
+}
+
+.summary-stat-card small {
+  color: #93a8c8;
+}
+
+.summary-stat-card strong {
+  color: #f2f8ff;
+  font-size: 1.35rem;
+}

@@ -1,16 +1,28 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { LoginPage } from '../pages/LoginPage'
-import { SystemHealthPage } from '../pages/SystemHealthPage'
-import { CameraManagementPage } from '../pages/CameraManagementPage'
-import { UserManagementPage } from '../pages/UserManagementPage'
-import { SettingsPage } from '../pages/SettingsPage'
+import { LoginPage } from '../features/authentication/pages/LoginPage'
+import { SystemHealthPage } from '../features/systemHealth/pages/SystemHealthPage'
+import { CameraManagementPage } from '../features/cameraManagement/pages/CameraManagementPage'
+import { UserManagementPage } from '../features/userManagement/pages/UserManagementPage'
+import { SettingsPage } from '../features/settings/pages/SettingsPage'
+import { ProjectManagerHomePage } from '../features/projectManager/pages/ProjectManagerHomePage'
 import { DashboardLayout } from '../layouts/DashboardLayout'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../features/authentication/context/AuthContext'
+import { ROLES } from '../utils/constants'
 
 function ProtectedRoute({ children }) {
   const { isAuthenticated } = useAuth()
   if (!isAuthenticated) return <Navigate to="/login" replace />
   return children
+}
+
+function DashboardIndexRoute() {
+  const { user } = useAuth()
+
+  if (user?.role === ROLES.PROJECT_MANAGER) {
+    return <ProjectManagerHomePage />
+  }
+
+  return <SystemHealthPage />
 }
 
 export function AppRoutes() {
@@ -25,10 +37,14 @@ export function AppRoutes() {
           </ProtectedRoute>
         }
       >
-        <Route index element={<SystemHealthPage />} />
+        <Route index element={<DashboardIndexRoute />} />
         <Route path="system-health" element={<SystemHealthPage />} />
         <Route path="camera-management" element={<CameraManagementPage />} />
         <Route path="user-management" element={<UserManagementPage />} />
+        <Route path="camera" element={<ProjectManagerHomePage />} />
+        <Route path="alert" element={<ProjectManagerHomePage />} />
+        <Route path="report" element={<ProjectManagerHomePage />} />
+        <Route path="message" element={<ProjectManagerHomePage />} />
         <Route path="settings" element={<SettingsPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/login" replace />} />

@@ -1,4 +1,4 @@
-import { buildDashboardSnapshot, loginWithDemoFallback } from '../api/mockData'
+import { buildDashboardSnapshot, loginWithDemoFallback } from './mockData'
 
 const delay = (value) => new Promise((resolve) => setTimeout(() => resolve(value), 320))
 

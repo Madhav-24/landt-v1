@@ -1,0 +1,23 @@
+.auth-button {
+  border: 0;
+  width: 100%;
+  min-height: 52px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #4f46e5 0%, #6366f1 100%);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+}
+
+.auth-button:hover {
+  box-shadow: 0 16px 30px rgba(79, 70, 229, 0.36), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  filter: brightness(1.02);
+}
+
+.auth-button:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}

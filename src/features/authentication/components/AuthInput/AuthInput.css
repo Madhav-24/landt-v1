@@ -1,0 +1,68 @@
+.auth-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+  border-radius: 999px;
+  background: #1f2937;
+  border: 1px solid rgba(229, 231, 235, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+
+.auth-input:focus-within {
+  border-color: rgba(79, 70, 229, 0.5);
+  box-shadow:
+    0 0 0 4px rgba(79, 70, 229, 0.16),
+    0 0 24px rgba(99, 102, 241, 0.16);
+}
+
+.auth-input__icon {
+  width: 46px;
+  display: grid;
+  place-items: center;
+  color: #94a3b8;
+  flex: 0 0 auto;
+}
+
+.auth-input__icon--right {
+  margin-left: auto;
+  width: 46px;
+}
+
+.auth-input__control {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #f8fafc;
+  padding: 0 14px 0 0;
+  min-width: 0;
+}
+
+.auth-input__control::placeholder {
+  color: #94a3b8;
+}
+
+.auth-input__control:-webkit-autofill,
+.auth-input__control:-webkit-autofill:hover,
+.auth-input__control:-webkit-autofill:focus {
+  -webkit-text-fill-color: #f8fafc;
+  box-shadow: 0 0 0px 1000px #1f2937 inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+.password-toggle {
+  border: 0;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.password-toggle:hover {
+  color: #4338ca;
+}

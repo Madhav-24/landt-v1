@@ -1,0 +1,15 @@
+.server-metric-card {
+  min-height: 94px;
+  display: grid;
+  align-content: center;
+  gap: 6px;
+}
+
+.server-metric-card small {
+  color: #95a8c6;
+}
+
+.server-metric-card strong {
+  color: #f4faff;
+  font-size: 1.08rem;
+}

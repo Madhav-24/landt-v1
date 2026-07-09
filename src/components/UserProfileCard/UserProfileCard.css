@@ -1,0 +1,80 @@
+.profile-card {
+  width: 100%;
+  border: 1px solid rgba(0, 215, 255, 0.22);
+  border-radius: 18px;
+  background: linear-gradient(160deg, rgba(9, 20, 44, 0.78), rgba(6, 12, 25, 0.7));
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  cursor: pointer;
+  color: #eef6ff;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(141, 102, 255, 0.44);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(0, 215, 255, 0.14);
+}
+
+.profile-avatar-wrap {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+}
+
+.profile-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.profile-avatar-fallback {
+  color: rgba(226, 240, 255, 0.92);
+  font-size: 48px;
+}
+
+.profile-status {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #050816;
+  font-size: 8px;
+}
+
+.profile-status.online { color: #29efb4; }
+.profile-status.away { color: #ffc96b; }
+.profile-status.offline { color: #ff627a; }
+
+.profile-content {
+  display: grid;
+  min-width: 0;
+}
+
+.profile-content strong {
+  color: #f7fbff;
+  font-size: 0.93rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-content small {
+  color: #8fa3c6;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

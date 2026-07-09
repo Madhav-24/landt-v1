@@ -1,8 +1,9 @@
 import { Outlet, useLocation } from 'react-router-dom'
-import { Sidebar } from '../components/common/Sidebar'
-import { TopBar } from '../components/TopBar'
-import { useAuth } from '../context/AuthContext'
-import { roleMenus } from '../api/mockData'
+import { Sidebar } from '../components/Sidebar/Sidebar'
+import { TopBar } from '../components/TopBar/TopBar'
+import { useAuth } from '../features/authentication/context/AuthContext'
+import { roleMenus } from '../services/mockData'
+import { ROLES } from '../utils/constants'
 
 const titles = {
   '/dashboard': ['System Health', 'Live operational telemetry from AI cameras, edge devices, and backend services.'],
@@ -10,12 +11,17 @@ const titles = {
   '/dashboard/camera-management': ['Camera Management', 'Click any site card to open a camera view, control feed, or capture media.'],
   '/dashboard/user-management': ['User Management', 'RBAC, employee profiles, and access control are centralized here.'],
   '/dashboard/settings': ['Settings', 'Environment, security, retention, and platform configuration are controlled here.'],
+  '/dashboard/camera': ['Camera', ''],
+  '/dashboard/alert': ['Alert', ''],
+  '/dashboard/report': ['Report', ''],
+  '/dashboard/message': ['Message', ''],
 }
 
 export function DashboardLayout() {
   const { user, logout } = useAuth()
   const location = useLocation()
-  const [title, subtitle] = titles[location.pathname] ?? titles['/dashboard']
+  const isProjectManager = user?.role === ROLES.PROJECT_MANAGER
+  const [title, subtitle] = isProjectManager ? ['', ''] : (titles[location.pathname] ?? titles['/dashboard'])
   const menus = roleMenus[user?.role] ?? roleMenus.Admin
 
   return (
