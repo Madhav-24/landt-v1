@@ -20,11 +20,13 @@ const titles = {
 export function DashboardLayout() {
   const { user, logout } = useAuth()
   const location = useLocation()
+  const hideTopBar =
+    (user?.role === ROLES.SAFETY_MANAGER || user?.role === ROLES.SAFETY_OFFICER) &&
+    location.pathname === '/dashboard'
   const isBlankRole =
     user?.role === ROLES.PROJECT_MANAGER ||
     user?.role === ROLES.SITE_SUPERVISOR ||
     user?.role === ROLES.SITE_ENGINEER ||
-    user?.role === ROLES.SAFETY_MANAGER ||
     user?.role === ROLES.SAFETY_OFFICER
   const [title, subtitle] = isBlankRole ? ['', ''] : (titles[location.pathname] ?? titles['/dashboard'])
   const menus = roleMenus[user?.role] ?? roleMenus.Admin
@@ -33,7 +35,7 @@ export function DashboardLayout() {
     <div className="app-shell">
       <Sidebar menus={menus} user={user} onLogout={logout} />
       <main className="main-shell">
-        <TopBar user={user} title={title} subtitle={subtitle} onRefresh={() => window.location.reload()} />
+        {hideTopBar ? null : <TopBar user={user} title={title} subtitle={subtitle} onRefresh={() => window.location.reload()} />}
         <Outlet />
       </main>
     </div>
