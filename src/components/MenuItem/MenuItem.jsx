@@ -3,7 +3,18 @@ import { FaTachometerAlt } from 'react-icons/fa'
 import './MenuItem.css'
 
 export function MenuItem({ menu, icon }) {
-  const path = menu === 'Dashboard' ? '/dashboard' : `/dashboard/${menu.toLowerCase().replace(/\s+/g, '-')}`
+  const routeMap = {
+    Dashboard: '/dashboard',
+    Camera: '/dashboard/camera',
+    Alert: '/dashboard/alert',
+    Report: '/dashboard/report',
+    Message: '/dashboard/message',
+    'System Health': '/dashboard/system-health',
+    'Camera Management': '/dashboard/camera-management',
+    'User Management': '/dashboard/user-management',
+    Settings: '/dashboard/settings',
+  }
+  const path = routeMap[menu] ?? `/dashboard/${menu.toLowerCase().replace(/\s+/g, '-')}`
 
   return (
     <NavLink
