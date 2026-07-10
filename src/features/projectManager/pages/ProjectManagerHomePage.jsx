@@ -185,7 +185,7 @@ export function ProjectManagerHomePage() {
     state: 'Tamil Nadu',
     city: 'Chennai',
     site: 'Package A',
-    chainage: 'CH 3+000',
+    chainage: 'All',
     date: '2026-07-09',
   }
   const [filters, setFilters] = useState(initialFilters)
@@ -199,19 +199,31 @@ export function ProjectManagerHomePage() {
       return items.filter((item) => Object.values(item).some((value) => String(value).toLowerCase().includes(search)))
     }
 
-    const filteredChainages = appliedFilters.chainage
-      ? projectManagerData.chainageProgress.filter((item) => item.chainage === appliedFilters.chainage)
-      : projectManagerData.chainageProgress
+    const filteredChainages =
+      appliedFilters.chainage && appliedFilters.chainage !== 'All'
+        ? projectManagerData.chainageProgress.filter((item) => item.chainage === appliedFilters.chainage)
+        : projectManagerData.chainageProgress
 
     return {
       ...projectManagerData,
-      attendanceTrend: projectManagerData.attendanceTrend,
-      resourceAllocation: projectManagerData.resourceAllocation,
-      projectProgress: projectManagerData.projectProgress,
+      attendanceTrend: search
+        ? projectManagerData.attendanceTrend.filter((item) => String(item.date).toLowerCase().includes(search) || String(item.workers).includes(search))
+        : projectManagerData.attendanceTrend,
+      resourceAllocation: search
+        ? projectManagerData.resourceAllocation.filter((item) => String(item.department).toLowerCase().includes(search) || String(item.workers).includes(search))
+        : projectManagerData.resourceAllocation,
+      projectProgress: search
+        ? projectManagerData.projectProgress.filter((item) => String(item.phase).toLowerCase().includes(search) || String(item.progress).includes(search))
+        : projectManagerData.projectProgress,
+      ppeBreakdown: search
+        ? projectManagerData.ppeBreakdown.filter((item) => String(item.category).toLowerCase().includes(search) || String(item.count).includes(search))
+        : projectManagerData.ppeBreakdown,
       chainageProgress: filteredChainages,
       issues: buildFilteredList(projectManagerData.issues),
       alerts: buildFilteredList(projectManagerData.alerts),
-      predictions: projectManagerData.predictions,
+      predictions: search
+        ? projectManagerData.predictions.filter((item) => String(item.label).toLowerCase().includes(search) || String(item.value).includes(search))
+        : projectManagerData.predictions,
     }
   }, [appliedFilters.chainage, appliedFilters.search])
 
@@ -224,12 +236,21 @@ export function ProjectManagerHomePage() {
 
     return {
       ...siteSupervisorData,
+      attendanceTrend: search
+        ? siteSupervisorData.attendanceTrend.filter((item) => String(item.date).toLowerCase().includes(search) || String(item.workers).includes(search))
+        : siteSupervisorData.attendanceTrend,
+      teams: search
+        ? siteSupervisorData.teams.filter((item) => String(item.team).toLowerCase().includes(search) || String(item.count).includes(search))
+        : siteSupervisorData.teams,
       tasks: buildFilteredList(siteSupervisorData.tasks),
       deliveries: buildFilteredList(siteSupervisorData.deliveries),
       defects: buildFilteredList(siteSupervisorData.defects),
       aiAlerts: search
         ? siteSupervisorData.aiAlerts.filter((alert) => alert.toLowerCase().includes(search))
         : siteSupervisorData.aiAlerts,
+      diary: search
+        ? siteSupervisorData.diary.filter((item) => String(item.note).toLowerCase().includes(search) || String(item.time).includes(search))
+        : siteSupervisorData.diary,
     }
   }, [appliedFilters.search])
 
@@ -317,7 +338,7 @@ export function ProjectManagerHomePage() {
           </div>
           <div className="chart-box">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={viewData.attendanceTrend}>
+              <LineChart data={isProjectManager ? filteredProjectData.attendanceTrend : filteredSiteData.attendanceTrend}>
                 <CartesianGrid stroke="rgba(255,255,255,0.08)" strokeDasharray="3 3" />
                 <XAxis dataKey="date" tick={{ fill: '#95a7c6', fontSize: 12 }} />
                 <YAxis tick={{ fill: '#95a7c6', fontSize: 12 }} />
@@ -361,7 +382,7 @@ export function ProjectManagerHomePage() {
           </div>
           <div className="chart-box">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={projectManagerData.ppeBreakdown}>
+              <BarChart data={filteredProjectData.ppeBreakdown}>
                 <CartesianGrid stroke="rgba(255,255,255,0.08)" strokeDasharray="3 3" />
                 <XAxis dataKey="category" tick={{ fill: '#95a7c6', fontSize: 12 }} />
                 <YAxis tick={{ fill: '#95a7c6', fontSize: 12 }} />
@@ -587,7 +608,7 @@ export function ProjectManagerHomePage() {
           </div>
           <div className="chart-box">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={siteSupervisorData.attendanceTrend}>
+              <LineChart data={filteredSiteData.attendanceTrend}>
                 <CartesianGrid stroke="rgba(255,255,255,0.08)" strokeDasharray="3 3" />
                 <XAxis dataKey="date" tick={{ fill: '#95a7c6', fontSize: 12 }} />
                 <YAxis tick={{ fill: '#95a7c6', fontSize: 12 }} />
@@ -609,8 +630,8 @@ export function ProjectManagerHomePage() {
           <div className="chart-box chart-box--pie">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
-                <Pie data={siteSupervisorData.teams} dataKey="count" nameKey="team" innerRadius={55} outerRadius={85} paddingAngle={2}>
-                  {siteSupervisorData.teams.map((entry, index) => (
+                <Pie data={filteredSiteData.teams} dataKey="count" nameKey="team" innerRadius={55} outerRadius={85} paddingAngle={2}>
+                  {filteredSiteData.teams.map((entry, index) => (
                     <Cell key={`${entry.team}-${index}`} fill={['#F59E0B', '#22C55E', '#3B82F6', '#F97316', '#EF4444'][index % 5]} />
                   ))}
                 </Pie>
@@ -729,7 +750,7 @@ export function ProjectManagerHomePage() {
             <span className="chip">Site notes</span>
           </div>
           <div className="list-stack">
-            {siteSupervisorData.diary.map((entry) => (
+            {filteredSiteData.diary.map((entry) => (
               <div key={`${entry.time}-${entry.note}`} className="list-row">
                 <span>{entry.note}</span>
                 <em>{entry.time}</em>

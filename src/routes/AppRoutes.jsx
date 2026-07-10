@@ -8,6 +8,8 @@ import { ProjectManagerHomePage } from '../features/projectManager/pages/Project
 import { AlertPage } from '../features/projectManager/pages/AlertPage'
 import { ReportPage } from '../features/projectManager/pages/ReportPage'
 import { MessagePage } from '../features/projectManager/pages/MessagePage'
+import { SafetyManagerDashboardPage } from '../features/safetyManager/pages/SafetyManagerDashboardPage'
+import { SafetyOfficerDashboardPage } from '../features/safetyOfficer/pages/SafetyOfficerDashboardPage'
 import { DashboardLayout } from '../layouts/DashboardLayout'
 import { useAuth } from '../features/authentication/context/AuthContext'
 import { ROLES } from '../utils/constants'
@@ -21,12 +23,18 @@ function ProtectedRoute({ children }) {
 function DashboardIndexRoute() {
   const { user } = useAuth()
 
+  if (user?.role === ROLES.SAFETY_MANAGER) {
+    return <SafetyManagerDashboardPage />
+  }
+
+  if (user?.role === ROLES.SAFETY_OFFICER) {
+    return <SafetyOfficerDashboardPage />
+  }
+
   if (
     user?.role === ROLES.PROJECT_MANAGER ||
     user?.role === ROLES.SITE_SUPERVISOR ||
-    user?.role === ROLES.SITE_ENGINEER ||
-    user?.role === ROLES.SAFETY_MANAGER ||
-    user?.role === ROLES.SAFETY_OFFICER
+    user?.role === ROLES.SITE_ENGINEER
   ) {
     return <ProjectManagerHomePage />
   }
