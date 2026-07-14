@@ -429,6 +429,13 @@ This project is developed for enterprise construction monitoring and research pu
 
 # 👨‍💻 Developed By
 
+**Madhav S**
+
+Junior Research Fellow
+
+B.Tech Artificial Intelligence & Data Science
+ 
+
 **Kartheeswaran R**
 
 AI Construction Monitoring Platform
