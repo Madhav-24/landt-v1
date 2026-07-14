@@ -66,7 +66,6 @@ export function AppRoutes() {
         <Route path="camera" element={<CameraManagementPage />} />
         <Route path="alert" element={<AlertPage />} />
         <Route path="report" element={<ReportPage />} />
-        <Route path="message" element={<MessagePage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="message" element={<AdminMessages />} />
         <Route path="settings" element={<SettingsPage />} />
