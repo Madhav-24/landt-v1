@@ -1,0 +1,236 @@
+.profile-page {
+  gap: 16px;
+  overflow-y: auto;
+  padding-bottom: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.profile-content {
+  display: grid;
+  gap: 16px;
+  max-width: 980px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.profile-page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-page__header h2 {
+  margin: 4px 0 0;
+}
+
+.profile-edit-toggle,
+.profile-save-button,
+.upload-pill,
+.alert-popup button {
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #f7fbff;
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+}
+
+.profile-edit-toggle:disabled,
+.profile-save-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.profile-edit-toggle--secondary {
+  align-self: flex-start;
+  background: rgba(255,255,255,0.08);
+}
+
+.profile-shell {
+  display: grid;
+  gap: 16px;
+}
+
+.otp-action-row {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+}
+
+.otp-field {
+  flex: 1;
+}
+
+.profile-hero,
+.profile-form-card,
+.password-card {
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 18px 45px rgba(2, 8, 23, 0.16);
+}
+
+.profile-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.profile-avatar-block {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.profile-avatar-wrap {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.16);
+}
+
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-avatar-fallback {
+  font-size: 3rem;
+  color: #f59e0b;
+}
+
+.upload-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.08);
+  padding: 8px 12px;
+  font-size: 0.9rem;
+}
+
+.upload-pill input {
+  display: none;
+}
+
+.profile-hero-copy h3,
+.profile-hero-copy p {
+  margin: 0;
+}
+
+.profile-field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.profile-field {
+  display: grid;
+  gap: 6px;
+  color: #95a7c6;
+  font-size: 0.9rem;
+}
+
+.profile-field--full {
+  grid-column: 1 / -1;
+}
+
+.profile-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.profile-input-wrap--textarea {
+  align-items: flex-start;
+}
+
+.profile-input-wrap input,
+.profile-input-wrap textarea {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #f7fbff;
+  resize: vertical;
+}
+
+.profile-input-wrap input:disabled,
+.profile-input-wrap textarea:disabled {
+  color: #95a7c6;
+}
+
+.profile-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.password-fields {
+  display: grid;
+  gap: 12px;
+}
+
+.password-hint {
+  margin: 0;
+  color: #95a7c6;
+  font-size: 0.9rem;
+}
+
+.alert-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.68);
+  display: grid;
+  place-items: center;
+  z-index: 50;
+  padding: 20px;
+}
+
+.alert-popup {
+  width: min(420px, 100%);
+  border-radius: 18px;
+  padding: 18px;
+  display: grid;
+  gap: 8px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: linear-gradient(145deg, rgba(10, 17, 36, 0.96), rgba(7, 12, 24, 0.9));
+}
+
+.alert-popup--success { border-color: rgba(34, 197, 94, 0.35); }
+.alert-popup--error { border-color: rgba(239, 68, 68, 0.35); }
+.alert-popup--info { border-color: rgba(59, 130, 246, 0.35); }
+
+.alert-popup p {
+  margin: 0;
+  color: #c9d7f0;
+}
+
+@media (max-width: 780px) {
+  .profile-page__header,
+  .profile-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .otp-action-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

@@ -11,6 +11,7 @@ import { ReportPage } from '../features/projectManager/pages/ReportPage'
 import { AdminMessages } from '../features/messages/pages/AdminMessages'
 import { SafetyManagerDashboardPage } from '../features/safetyManager/pages/SafetyManagerDashboardPage'
 import { SafetyOfficerDashboardPage } from '../features/safetyOfficer/pages/SafetyOfficerDashboardPage'
+import { ProfilePage } from '../features/profile/pages/ProfilePage'
 import { DashboardLayout } from '../layouts/DashboardLayout'
 import { useAuth } from '../features/authentication/context/AuthContext'
 import { ROLES } from '../utils/constants'
@@ -65,6 +66,8 @@ export function AppRoutes() {
         <Route path="camera" element={<CameraManagementPage />} />
         <Route path="alert" element={<AlertPage />} />
         <Route path="report" element={<ReportPage />} />
+        <Route path="message" element={<MessagePage />} />
+        <Route path="profile" element={<ProfilePage />} />
         <Route path="message" element={<AdminMessages />} />
         <Route path="settings" element={<SettingsPage />} />
       </Route>

@@ -17,6 +17,20 @@
   color: var(--muted);
 }
 
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
 .topbar-actions {
   display: flex;
   gap: 10px;
