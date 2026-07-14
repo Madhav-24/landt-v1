@@ -98,7 +98,7 @@ export const safetyOfficerUser = {
 }
 
 export const roleMenus = {
-  [ROLES.ADMIN]: ['System Health', 'Camera Management', 'User Management', 'Settings'],
+  [ROLES.ADMIN]: ['System Health', 'Camera Management', 'User Management', 'User Create', 'Project Assigned', 'Message', 'Settings'],
   [ROLES.PROJECT_MANAGER]: ['Dashboard', 'Camera', 'Alert', 'Report', 'Message', 'Settings'],
   [ROLES.SITE_SUPERVISOR]: ['Dashboard', 'Camera', 'Alert', 'Report', 'Message', 'Settings'],
   [ROLES.SITE_ENGINEER]: ['Dashboard', 'Camera', 'Alert', 'Report', 'Message', 'Settings'],

@@ -1,0 +1,53 @@
+.user-menu {
+  position: relative;
+}
+
+.user-menu-trigger {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+}
+
+.user-menu-popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 150px;
+  border-radius: 16px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, rgba(11, 16, 31, 0.98), rgba(8, 12, 24, 0.96));
+  box-shadow: var(--shadow);
+  padding: 6px;
+  z-index: 4;
+  display: grid;
+  gap: 4px;
+  animation: userMenuIn 0.18s ease;
+}
+
+.user-menu-popover button {
+  border: 0;
+  cursor: pointer;
+  border-radius: 12px;
+  background: transparent;
+  color: #eaf4ff;
+  text-align: left;
+  padding: 10px 12px;
+  transition: background 0.18s ease;
+}
+
+.user-menu-popover button:hover,
+.user-menu-popover button:focus-visible {
+  background: rgba(0, 215, 255, 0.14);
+}
+
+@keyframes userMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

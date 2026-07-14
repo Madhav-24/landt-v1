@@ -12,6 +12,8 @@ export function MenuItem({ menu, icon }) {
     'System Health': '/dashboard/system-health',
     'Camera Management': '/dashboard/camera-management',
     'User Management': '/dashboard/user-management',
+    'User Create': '/dashboard/user-create',
+    'Project Assigned': '/dashboard/project-assigned',
     Settings: '/dashboard/settings',
   }
   const path = routeMap[menu] ?? `/dashboard/${menu.toLowerCase().replace(/\s+/g, '-')}`
