@@ -10,11 +10,14 @@ const titles = {
   '/dashboard/system-health': ['System Health', 'All health signals are refreshed from the backend data layer and auto-synced.'],
   '/dashboard/camera-management': ['Camera Management', 'Click any site card to open a camera view, control feed, or capture media.'],
   '/dashboard/user-management': ['User Management', 'RBAC, employee profiles, and access control are centralized here.'],
+  '/dashboard/user-create': ['User Create', 'Manage employee accounts and roles.'],
+  '/dashboard/project-assigned': ['Project Assigned', 'Create temporary role-based assignment cards for drawing management preview.'],
   '/dashboard/settings': ['Settings', 'Environment, security, retention, and platform configuration are controlled here.'],
   '/dashboard/camera': ['Camera', ''],
   '/dashboard/alert': ['Alert', ''],
   '/dashboard/report': ['Report', ''],
   '/dashboard/message': ['Message', ''],
+  '/admin/messages': ['Message', 'Internal secure messaging for project and safety teams.'],
 }
 
 export function DashboardLayout() {

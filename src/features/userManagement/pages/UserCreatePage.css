@@ -1,0 +1,84 @@
+@import '../components/UserModal/UserModal.css';
+@import '../components/UserForm/UserForm.css';
+@import '../components/UserCard/UserCard.css';
+@import '../components/UserMenu/UserMenu.css';
+@import '../components/EmptyState/EmptyState.css';
+@import '../components/UserFormModal/UserFormModal.css';
+@import '../components/DeleteConfirmationModal/DeleteConfirmationModal.css';
+@import '../components/UserToast/UserToast.css';
+
+.user-create-page {
+  display: grid;
+  gap: 16px;
+  padding-top: 18px;
+  overflow: auto;
+  min-height: 0;
+}
+
+.user-create-controls {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(260px, 1fr) minmax(160px, 0.3fr) minmax(180px, 0.35fr);
+  padding: 16px;
+}
+
+.user-filter-field {
+  display: grid;
+  gap: 6px;
+}
+
+.user-filter-field span {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.user-create-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.user-skeleton-card {
+  min-height: 220px;
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.06)),
+    linear-gradient(180deg, rgba(10, 17, 36, 0.92), rgba(8, 12, 24, 0.86));
+  background-size: 200% 100%;
+  animation: skeletonPulse 1.4s ease infinite;
+}
+
+@keyframes skeletonPulse {
+  from {
+    background-position: 120% 0;
+  }
+
+  to {
+    background-position: -20% 0;
+  }
+}
+
+@media (max-width: 1400px) {
+  .user-create-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .user-create-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .user-create-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .user-create-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .user-create-grid {
+    grid-template-columns: 1fr;
+  }
+}
