@@ -1,0 +1,156 @@
+.weather-widget {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 16px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(0, 215, 255, 0.08), rgba(155, 123, 255, 0.06));
+  border: 1px solid rgba(0, 215, 255, 0.12);
+  backdrop-filter: blur(8px);
+  min-width: 200px;
+}
+
+.weather-widget--loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.weather-datetime {
+  display: grid;
+  gap: 2px;
+  min-width: 80px;
+}
+
+.weather-time {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f7fbff;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.weather-date {
+  font-size: 0.7rem;
+  color: var(--muted);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.weather-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(0, 215, 255, 0.15);
+  flex-shrink: 0;
+}
+
+.weather-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.weather-icon {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.weather-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(0, 215, 255, 0.3));
+}
+
+.weather-temp {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #f7fbff;
+  line-height: 1;
+}
+
+.weather-desc {
+  font-size: 0.68rem;
+  color: var(--muted);
+  line-height: 1.2;
+  text-transform: capitalize;
+}
+
+.weather-details {
+  display: flex;
+  gap: 8px;
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+
+.weather-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+.weather-detail-item svg {
+  width: 10px;
+  height: 10px;
+  opacity: 0.6;
+}
+
+.weather-refresh-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  transition: color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+
+.weather-refresh-btn:hover {
+  color: var(--cyan);
+  background: rgba(0, 215, 255, 0.1);
+}
+
+.weather-refresh-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.weather-error {
+  font-size: 0.7rem;
+  color: var(--danger);
+  padding: 4px 8px;
+}
+
+@media (max-width: 980px) {
+  .weather-widget {
+    min-width: unset;
+    padding: 6px 10px;
+    gap: 8px;
+  }
+  
+  .weather-datetime {
+    min-width: unset;
+  }
+  
+  .weather-time {
+    font-size: 0.95rem;
+  }
+  
+  .weather-date {
+    font-size: 0.6rem;
+  }
+  
+  .weather-details {
+    display: none;
+  }
+  
+  .weather-temp {
+    font-size: 1rem;
+  }
+}

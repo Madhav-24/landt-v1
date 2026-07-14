@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { Sidebar } from '../components/Sidebar/Sidebar'
 import { TopBar } from '../components/TopBar/TopBar'
 import { useAuth } from '../features/authentication/context/AuthContext'
@@ -23,6 +23,7 @@ const titles = {
 export function DashboardLayout() {
   const { user, logout } = useAuth()
   const location = useLocation()
+  const navigate = useNavigate()
   const hideTopBar =
     (user?.role === ROLES.SAFETY_MANAGER || user?.role === ROLES.SAFETY_OFFICER) &&
     location.pathname === '/dashboard'
@@ -36,7 +37,7 @@ export function DashboardLayout() {
 
   return (
     <div className="app-shell">
-      <Sidebar menus={menus} user={user} onLogout={logout} />
+      <Sidebar menus={menus} user={user} onLogout={logout} onProfileClick={() => navigate('/dashboard/profile')} />
       <main className="main-shell">
         {hideTopBar ? null : <TopBar user={user} title={title} subtitle={subtitle} onRefresh={() => window.location.reload()} />}
         <Outlet />
